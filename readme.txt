@@ -37,5 +37,9 @@ Just a sample extension.
 
 == Changelog ==
 
+= 1.0.1 =
+Added - Filter to modify the rendered HTML of a given element.
+Improved - The selector for element child containers can now be specified when registering the element.
+
 = 1.0.0 =
-* Initial release.
+Initial release.

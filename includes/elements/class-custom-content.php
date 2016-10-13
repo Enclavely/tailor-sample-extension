@@ -23,17 +23,17 @@ if ( class_exists( 'Tailor_Element' ) && ! class_exists( 'Tailor_Custom_Content_
 	    protected function register_controls() {
 		    
 		    $this->add_section( 'general', array(
-			    'title'                 =>  __( 'General', 'tailor-portfolio' ),
+			    'title'                 =>  __( 'General' ),
 			    'priority'              =>  10,
 		    ) );
 
 		    $this->add_section( 'colors', array(
-			    'title'                 =>  __( 'Colors', 'tailor-portfolio' ),
+			    'title'                 =>  __( 'Colors' ),
 			    'priority'              =>  30,
 		    ) );
 
 		    $this->add_section( 'attributes', array(
-			    'title'                 =>  __( 'Attributes', 'tailor-portfolio' ),
+			    'title'                 =>  __( 'Attributes' ),
 			    'priority'              =>  40,
 		    ) );
 
@@ -45,7 +45,7 @@ if ( class_exists( 'Tailor_Element' ) && ! class_exists( 'Tailor_Custom_Content_
 			    'default'               =>  'The default value for setting 1',
 		    ) );
 		    $this->add_control( 'setting_1', array(
-			    'label'                 =>  __( 'Setting 1', 'tailor-portfolio' ),
+			    'label'                 =>  __( 'Setting 1' ),
 			    'type'                  =>  'text',
 			    'section'               =>  'general',
 			    'priority'              =>  $priority += 10,
@@ -55,7 +55,7 @@ if ( class_exists( 'Tailor_Element' ) && ! class_exists( 'Tailor_Custom_Content_
 			    'sanitize_callback'     =>  'tailor_sanitize_text',
 		    ) );
 		    $this->add_control( 'setting_2', array(
-			    'label'                 =>  __( 'Setting 2', 'tailor-portfolio' ),
+			    'label'                 =>  __( 'Setting 2' ),
 			    'type'                  =>  'text',
 			    'section'               =>  'general',
 			    'priority'              =>  $priority += 10,

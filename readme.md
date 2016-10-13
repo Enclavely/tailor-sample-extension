@@ -19,3 +19,14 @@ If you have questions about how to extend Tailor or would like to see an example
 1. [Facebook](https://www.facebook.com/tailorwp/)
 2. [Twitter](https://twitter.com/tailorwp)
 3. The [Help Center](http://support.gettailor.com)
+
+## Changelog
+
+### 1.0.1
+
+Added - Filter to modify the rendered HTML of a given element. 
+Improved - The selector for element child containers can now be specified when registering the element.
+
+### 1.0.0
+
+Initial version
