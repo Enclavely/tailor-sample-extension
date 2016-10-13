@@ -27,6 +27,8 @@ If you have questions about how to extend Tailor or would like to see an example
 Added - Filter to modify the rendered HTML of a given element. 
 Improved - The selector for element child containers can now be specified when registering the element.
 
+Note: this version supports Tailor 1.6.0 and above.
+
 ### 1.0.0
 
 Initial version
