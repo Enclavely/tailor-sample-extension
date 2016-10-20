@@ -12,36 +12,54 @@ if ( ! function_exists( 'tailor_shortcode_custom_content_element' ) ) {
      */
     function tailor_shortcode_custom_content_element( $atts, $content = null, $tag ) {
 
-	    $atts = shortcode_atts( array(
-		    'id'                =>  '',
-		    'class'             =>  '',
-		    'setting_1'         =>  '',
-		    'setting_2'         =>  '',
-	    ), $atts, $tag );
+	    /**
+	     * Filter the default shortcode attributes.
+	     *
+	     * @param array
+	     */
+	    $default_atts = apply_filters( 'tailor_shortcode_default_atts_' . $tag, array() );
+	    $atts = shortcode_atts( $default_atts, $atts, $tag );
+	    $html_atts = array(
+		    'id'            =>  empty( $atts['id'] ) ? null : $atts['id'],
+		    'class'         =>  explode( ' ', "tailor-element tailor-custom-content {$atts['class']}" ),
+		    'data'          =>  array(),
+	    );
 
-	    $id = ( '' !== $atts['id'] ) ? 'id="' . esc_attr( $atts['id'] ) . '"' : '';
-	    $class = trim( esc_attr( "tailor-element tailor-custom-content {$atts['class']}" ) );
-	    
-	    // Do something with the element settings
-	    $inner_html = '<p><b>This is a sample content element.</b></p>';
-
+	    $content = '<p><b>This is a sample content element.</b></p>';
 	    if ( ! empty( $atts['setting_1'] ) ) {
-		    $inner_html .= '<p>Setting 1: ' . esc_attr( $atts['setting_1'] ) . '</p>';
+		    $content .= '<p>Setting 1: ' . esc_attr( $atts['setting_1'] ) . '</p>';
 	    }
 	    if ( ! empty( $atts['setting_2'] ) ) {
-		    $inner_html .= '<p>Setting 2: ' . esc_attr( $atts['setting_2'] ) . '</p>';
+		    $content .= '<p>Setting 2: ' . esc_attr( $atts['setting_2'] ) . '</p>';
 	    }
 
-	    $outer_html = '<div ' . trim( "{$id} class=\"{$class}\"" ) . '>%s</div>';
+	    /**
+	     * Filter the HTML attributes for the element.
+	     *
+	     * @param array $html_attributes
+	     * @param array $atts
+	     * @param string $tag
+	     */
+	    $html_atts = apply_filters( 'tailor_shortcode_html_attributes', $html_atts, $atts, $tag );
+	    $html_atts['class'] = implode( ' ', (array) $html_atts['class'] );
+	    $html_atts = tailor_get_attributes( $html_atts );
+
+	    $outer_html = "<div {$html_atts}>%s</div>";
+	    $inner_html = '%s';
+	    $html = sprintf( $outer_html, sprintf( $inner_html, $content ) );
 
 	    /**
 	     * Filter the HTML for the element.
 	     *
+	     * @param string $html
 	     * @param string $outer_html
 	     * @param string $inner_html
+	     * @param string $html_atts
 	     * @param array $atts
+	     * @param string $content
+	     * @param string $tag
 	     */
-	    $html = apply_filters( 'tailor_shortcode_custom_content_html', sprintf( $outer_html, $inner_html ), $outer_html, $inner_html, $atts );
+	    $html = apply_filters( 'tailor_shortcode_html', $html, $outer_html, $inner_html, $html_atts, $atts, $content, $tag );
 
 	    return $html;
     }

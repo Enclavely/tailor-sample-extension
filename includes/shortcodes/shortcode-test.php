@@ -1,16 +1,16 @@
 <?php
 
-if ( ! function_exists( 'tailor_shortcode_custom_child_element' ) ) {
+if ( ! function_exists( 'tailor_shortcode_test_element' ) ) {
 
     /**
-     * Defines the shortcode rendering function for the custom child element.
+     * Defines the shortcode rendering function for the test element.
      *
      * @param array $atts
      * @param string $content
      * @param string $tag
      * @return string
      */
-    function tailor_shortcode_custom_child_element( $atts, $content = null, $tag ) {
+    function tailor_shortcode_test_element( $atts, $content = null, $tag ) {
 
 	    /**
 	     * Filter the default shortcode attributes.
@@ -21,9 +21,11 @@ if ( ! function_exists( 'tailor_shortcode_custom_child_element' ) ) {
 	    $atts = shortcode_atts( $default_atts, $atts, $tag );
 	    $html_atts = array(
 		    'id'            =>  empty( $atts['id'] ) ? null : $atts['id'],
-		    'class'         =>  explode( ' ', "tailor-element tailor-custom-child {$atts['class']}" ),
+		    'class'         =>  explode( ' ', "tailor-element tailor-custom-content {$atts['class']}" ),
 		    'data'          =>  array(),
 	    );
+	    
+	    $content = '<p><b>This is a test element with all control types.</b></p>';
 
 	    /**
 	     * Filter the HTML attributes for the element.
@@ -38,7 +40,6 @@ if ( ! function_exists( 'tailor_shortcode_custom_child_element' ) ) {
 
 	    $outer_html = "<div {$html_atts}>%s</div>";
 	    $inner_html = '%s';
-	    $content = do_shortcode( $content );
 	    $html = sprintf( $outer_html, sprintf( $inner_html, $content ) );
 
 	    /**
@@ -57,5 +58,5 @@ if ( ! function_exists( 'tailor_shortcode_custom_child_element' ) ) {
 	    return $html;
     }
 
-    add_shortcode( 'tailor_custom_child', 'tailor_shortcode_custom_child_element' );
+    add_shortcode( 'tailor_test', 'tailor_shortcode_test_element' );
 }

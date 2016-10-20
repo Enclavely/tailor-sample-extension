@@ -10,12 +10,10 @@ function tailor_modify_section( $section_element ) {
 	// Get the section class name setting
 	$style_setting = $section_element->get_setting( 'class' );
 
-	// Set the default value to 'u-full-width' to have sections display full width
-	$style_setting->default = 'u-full-width';
+	$style_setting->default = 'custom-class';
 }
 
-add_action( 'tailor_element_register_controls_tailor_section', 'tailor_modify_section' );
-
+//add_action( 'tailor_element_register_controls_tailor_section', 'tailor_modify_section' );
 
 
 /**

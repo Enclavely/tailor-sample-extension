@@ -2,7 +2,7 @@
 Tags:
 Requires at least: 4.3
 Tested up to: 4.6
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl.html
 Contributors: andrew.worsfold
@@ -37,9 +37,13 @@ Just a sample extension.
 
 == Changelog ==
 
+= 1.1.0 =
+* Added - Simple demonstrations of the element and setting JS APIs.
+* Improved - Element rendering functions (in line with Tailor 1.7.0+).
+
 = 1.0.1 =
-Added - Filter to modify the rendered HTML of a given element.
-Improved - The selector for element child containers can now be specified when registering the element.
+* Added - Filter to modify the rendered HTML of a given element.
+* Improved - The selector for element child containers can now be specified when registering the element.
 
 = 1.0.0 =
-Initial release.
+* Initial release.

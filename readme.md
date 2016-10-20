@@ -22,13 +22,17 @@ If you have questions about how to extend Tailor or would like to see an example
 
 ## Changelog
 
+### 1.1.0
+* Added - Simple demonstrations of the element and setting JS APIs.
+* Improved - Element rendering functions (in line with Tailor 1.7.0+).
+
+Note: Tailor version 1.7.0 (or newer) is required to use this sample extension.
+
 ### 1.0.1
 
-Added - Filter to modify the rendered HTML of a given element. 
-Improved - The selector for element child containers can now be specified when registering the element.
-
-Note: this version supports Tailor 1.6.0 and above.
+* Added - Filter to modify the rendered HTML of a given element. 
+* Improved - The selector for element child containers can now be specified when registering the element.
 
 ### 1.0.0
 
-Initial version
+* Initial version
